@@ -1,1 +1,126 @@
 /* You can add global styles to this file, and also import other style files */
+  :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #38bdf8;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      padding: 12px 16px;
+      background: var(--card);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      flex: 1 1 auto;
+    }
+    header input[type="search"] {
+      flex: 2 1 160px;
+      min-width: 140px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #475569;
+      background: #0f172a;
+      color: var(--text);
+    }
+    button {
+      background: var(--accent);
+      color: #0f172a;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button.secondary { background: #334155; color: var(--text); }
+    button.camera { background: #22c55e; }
+    #map { flex: 1; min-height: 240px; }
+    #panel {
+      background: var(--card);
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      border-top: 1px solid #334155;
+    }
+    .coord-box {
+      background: #0f172a;
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .coord-box label {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .coord-box .value {
+      font-family: ui-monospace, monospace;
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+    .hint {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 0 16px 8px;
+      margin: 0;
+    }
+    /* Overlay da câmera */
+    #camOverlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 9999;
+      flex-direction: column;
+    }
+    #camOverlay.open { display: flex; }
+    #camVideo, #camCanvas {
+      width: 100%;
+      flex: 1;
+      object-fit: cover;
+      background: #000;
+    }
+    #camCanvas { display: none; }
+    .cam-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px;
+      background: #111827;
+      align-items: center;
+    }
+    #ocrStatus {
+      flex: 1;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+    #ocrRaw {
+      max-height: 80px;
+      overflow: auto;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      white-space: pre-wrap;
+      padding: 0 12px 8px;
+      background: #0b1220;
+    }
+    input[type="file"] { display: none; }
